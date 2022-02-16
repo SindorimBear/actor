@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<launch>
+    <param name="robot_description" textfile="$(find deepexpress_description)/urdf/urdf/box1.urdf"/>
+
+	<arg name="box1"  default="box1_0"/>
+
+	<arg name="box1_x_pos" default="1.2"/>
+	<arg name="box1_y_pos" default="0.0"/>
+	<arg name="box1_z_pos" default=" 0.0"/>
+	<arg name="box1_roll"   default="0.0"/>
+	<arg name="box1_pitch"   default="0.0"/>
+	<arg name="box1_yaw"   default="0.0"/>
+
+	<arg name="box2"  default="box2_0"/>
+
+	<arg name="box2_x_pos" default="0"/>
+	<arg name="box2_y_pos" default="1.0"/>
+	<arg name="box2_z_pos" default=" 0.0"/>
+        <arg name="box2_roll"   default=" 0.0"/>
+	<arg name="box2_pitch"   default="0.0"/>
+	<arg name="box2_yaw"   default="0.0"/>
+	
+	<arg name="box3"  default="box3_0"/>
+
+	<arg name="box3_x_pos" default="-3.0"/>
+	<arg name="box3_y_pos" default="0.0"/>
+	<arg name="box3_z_pos" default=" 0.0"/>
+	<arg name="box3_roll"   default="0.0"/>
+	<arg name="box3_pitch"   default="0.0"/>
+	<arg name="box3_yaw"   default="0.0"/>
+
+	<arg name="box4"  default="box4_0"/>
+
+	<arg name="box4_x_pos" default="0.0"/>
+	<arg name="box4_y_pos" default="-3.2"/>
+	<arg name="box4_z_pos" default=" 0.0"/>
+	<arg name="box4_roll"   default="0.0"/>
+	<arg name="box4_pitch"   default="0.0"/>
+	<arg name="box4_yaw"   default="0.0"/>
+
+
+    <!--Start Gazebo with an empty world-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+      
+ <!--box 1-->
+ <group ns = "$(arg box1)">
+  
+  <param name="robot_description" textfile="$(find deepexpress_description)/urdf/urdf/box1.urdf"/>
+
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model box1 -x $(arg box1_x_pos) -y $(arg box1_y_pos) -z $(arg box1_z_pos) -R $(arg box1_roll) -P $(arg box1_pitch) -Y $(arg box1_yaw) -param robot_description" />
+  </group>
+
+ <!--box 2-->
+<group ns = "$(arg box2)">
+  
+  <param name="robot_description" textfile="$(find deepexpress_description)/urdf/urdf/box2.urdf"/>
+
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model box2 -x $(arg box2_x_pos) -y $(arg box2_y_pos) -z $(arg box2_z_pos) -R $(arg box2_roll) -P $(arg box2_pitch) -Y $(arg box2_yaw) -param robot_description" />
+  </group>
+
+<!--box 3-->
+<group ns = "$(arg box3)">
+  
+  <param name="robot_description" textfile="$(find deepexpress_description)/urdf/urdf/box3.urdf"/>
+
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model box3 -x $(arg box3_x_pos) -y $(arg box3_y_pos) -z $(arg box3_z_pos) -R $(arg box3_roll) -P $(arg box3_pitch) -Y $(arg box3_yaw) -param robot_description" />
+  </group>
+
+ <!--box 4-->
+<group ns = "$(arg box4)">
+  
+  <param name="robot_description" textfile="$(find deepexpress_description)/urdf/urdf/box4.urdf"/>
+
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-urdf -model box4 -x $(arg box4_x_pos) -y $(arg box4_y_pos) -z $(arg box4_z_pos) -R $(arg box4_roll) -P $(arg box4_pitch) -Y $(arg box4_yaw) -param robot_description" />
+  </group>
+</launch>

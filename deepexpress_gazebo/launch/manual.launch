@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <node name = "box1"  pkg="deepexpress_gazebo"  type="manual_node_launch.py"    output="screen">
+    <node name = "box2"  pkg="deepexpress_gazebo"  type="manual_node_launch.py"    output="screen">
+    <node name = "box3"  pkg="deepexpress_gazebo"  type="manual_node_launch.py"    output="screen">
+    <node name = "box4"  pkg="deepexpress_gazebo"  type="manual_node_launch.py"    output="screen">
+    
+    <!--Start Gazebo with an empty world-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+</launch>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+	<param name="robot_description" textfile="$(find deepexpress_description)/urdf/urdf/box1.urdf"/>
+    <!-- Start Nodes -->
+    <node    name="box1"    pkg="deepexpress_gazebo"    type="simulation.py"    output="screen"/>
+    <node    name="box2"    pkg="deepexpress_gazebo"    type="simulation.py"    output="screen"/>
+    <node    name="box3"    pkg="deepexpress_gazebo"    type="simulation.py"    output="screen"/>
+    <node    name="box4"    pkg="deepexpress_gazebo"    type="simulation.py"    output="screen"/>
+
+<include file="$(find gazebo_ros)/launch/empty_world.launch"/>
+
+</launch>

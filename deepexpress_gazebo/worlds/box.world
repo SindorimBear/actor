@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <gui>
+      <camera name="user_camera">
+        <pose>0 -18 8.0 0 0.523 1.5707</pose>
+      </camera>
+    </gui>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <include>
+      <name>obstacle1</name>
+      <pose>0.5 -1.6 0.2 0 0 0</pose>
+      <uri>model://cafe_table</uri>
+    </include>
+
+    <include>
+      <name>obstacle2</name>
+      <pose>2.4 -5.5 0.2 0 0 0</pose>
+      <uri>model://cafe_table</uri>
+    </include>
+
+    <include>
+      <name>obstacle3</name>
+      <pose>-1.5 -5.5 0.2 0 0 0</pose>
+      <uri>model://cafe_table</uri>
+    </include>
+
+    <include>
+      <name>obstacle4</name>
+      <pose>2.4 -9 0.2 0 0 0</pose>
+      <uri>model://cafe_table</uri>
+    </include>
+
+    <!-- Boxes for launch-->
+    <actor name="actor1">
+      <pose>0 3 1.25 0 0 0</pose>
+      <skin>
+        <filename>walk.dae</filename>
+        <scale>1.0</scale>
+      </skin>
+      <animation name="walking">
+        <filename>walk.dae</filename>
+        <scale>1.000000</scale>
+        <interpolate_x>true</interpolate_x>
+      </animation>
+      <plugin name="actor_plugin" filename="libActorPlugin.so">
+        <target>0 -9 1.24</target>
+        <target_weight>1.15</target_weight>
+        <obstacle_weight>1.8</obstacle_weight>
+        <animation_factor>5.1</animation_factor>
+        <ignore_obstacles>
+          <model>cafe</model>
+          <model>ground_plane</model>
+        </ignore_obstacles>
+      </plugin>
+      <plugin name="actor_ground_state" filename="libgazebo_ros_p3d.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>100.0</updateRate>
+        <bodyName>Spine</bodyName>
+        <topicName>actor01_odometry_spine</topicName>
+        <gaussianNoise>0.01</gaussianNoise>
+        <frameName>world</frameName>
+        <xyzOffsets>0 0 0</xyzOffsets>
+        <rpyOffsets>0 0 0</rpyOffsets>
+        <odometryTopic>actor1</odometryTopic>
+        <odometryFrame>actor1</odometryFrame>
+        <odometryRate>30</odometryRate>
+      </plugin>
+    </actor>
+
+
+  </world>
+</sdf>
