@@ -51,11 +51,13 @@ The world file begins with the necessary conditions for the world 'ground_plane'
       </attenuation>
       <cast_shadows>0</cast_shadows>
       <direction>0 0 -1</direction>
-    </light> ```
+    </light> 
+  ```
     
 The gui part is the adjustment of the camera angle so that the observer can watch the simulation from a certain position.   
 
 Now, the code continues including the important ground_plane and cafe_table as the obstacles for the actors.   
+
 ```<include>
       <uri>model://ground_plane</uri>
     </include>
